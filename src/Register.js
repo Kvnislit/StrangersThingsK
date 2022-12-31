@@ -1,5 +1,3 @@
-
-
 import React, {useState} from 'react'
 
 const  Register=() => {
@@ -8,8 +6,7 @@ const [registerPassword, setRegisterPassword] = useState('');
 
 const register =(ev)=>{
     ev.preventDefault();
-
-    fetch('https://strangers-things.herokuapp.com/api/2209-ftb-et-web-am/users/register', {
+fetch('https://strangers-things.herokuapp.com/api/2209-ftb-et-web-am/users/register', {
   method: "POST",
   headers: {
     'Content-Type': 'application/json'
@@ -34,14 +31,14 @@ const register =(ev)=>{
 return (
 <form onSubmit= { register }>
 <input 
-placeholder="username" 
-value={ registerUsername }
-onChange ={ ev=> setRegisterUsername(ev.target.value)}/>
+  placeholder="username" 
+  value={ registerUsername }
+  onChange ={ ev=> setRegisterUsername(ev.target.value)}/>
 
 <input 
-placeholder="password"
-value={ registerPassword }
-onChange ={ ev=> setRegisterPassword(ev.target.value)}/>
+  placeholder="password"
+  value={ registerPassword }
+  onChange ={ ev=> setRegisterPassword(ev.target.value)}/>
 
 <button>Register</button>
 </form>

@@ -1,6 +1,5 @@
-
 import React, {useState , useEffect} from 'react';
-import {token} from './index'
+
 
 const Login = (props) =>{
   const exchangeTokenForUser = props.exchangeTokenForUser

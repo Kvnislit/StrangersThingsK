@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 
 
  const Create = (props) => {
-    const {token} = props; 
+    const token = props.token;
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-        
+   
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         // console.log('title, description:', title, description)
@@ -14,21 +14,19 @@ import React, {useState} from 'react'
             method: "POST",
             headers: {
             'Content-Type': 'Application/json',
-             Authorization: `Bearer ${token}`     
+            'Authorization': `Bearer ${token}`     
             },
             body: JSON.stringify({
                 post : {
-                title: title,
-                description: description,
-                price: price,
-                willDeliver: true
+                    title: title,
+                    description: description,
+                    price: price,
+                    willDeliver: true,
                 } 
             })
             });
                 const data= await response.json();
                 console.log('data:' , data)
-
-            
             }
         
             return <>
