@@ -36,7 +36,9 @@ const Login = (props) =>{
   }
 
   return (
-    <form onSubmit= { login }>
+    <form className="loginBox" onSubmit= { login }>
+      <h3>Login</h3>
+    
       <input 
         placeholder="username" 
         value={ loginUsername }
@@ -48,6 +50,7 @@ const Login = (props) =>{
         onChange ={ ev => setLoginPassword(ev.target.value)}/>
 
         <button>Login</button>
+        
     </form>
   );
  

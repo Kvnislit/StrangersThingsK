@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Create from './Create';
 import Update from './Update';
-
+import Search from './Search';
 
 const Posts = (props)=> {
 const posts = props.posts;
@@ -30,6 +30,7 @@ if(data){
 
     return <>
         <h1>Posts</h1>
+        <Search/>
         {
           postId
           ? <Update token={token} posts={posts} setPosts={setPosts} postId={postId} 
@@ -37,24 +38,23 @@ if(data){
           :<Create token={token} posts={posts} setPosts={setPosts}/>
         }
         {posts.map((post) => {
-          return (
-          <div key={post._id}>
-            {/* className={post.isAuthor ? 'singlePost': 'singlePost'} */}
-            <h3>{post.title}</h3>
+          return (   
+          <div key={post._id}
+            className={post.isAuthor ? 'singlePost myPost': 'singlePost'}>
+            <h2><u>{post.title}</u></h2>
               <p>{post.description}</p>
-              <p>Price: {post.price}</p>
-              <p>Location: {post.location}</p>
-              <p>Will Deliver{post.willDeliver}</p>
+              <p><u>Price:</u> {post.price}</p>
+              <p><u>Location:</u> {post.location}</p>
+              <p><u>Will Deliver</u>{post.willDeliver}</p>
               {post.isAuthor ? <button type="button"
               className="btn btn-outline-primary" 
               onClick={()=> setPostId(post._id)}>Edit</button>:null}
                {post.isAuthor ? <button type="button"
               className="btn btn-outline-primary" 
-              onClick={()=> handleDelete(post._id)}>Delete</button>:null}
-          </div>
-          );
+              onClick={()=> handleDelete(post._id)}>Delete</button>:null}          
+          </div>);
         })}
-      
+  
       </>
    }
  

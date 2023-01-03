@@ -6,7 +6,7 @@ const Update =({token, posts, setPosts, postId, setPostId}) => {
     const [title, setTitle] = useState([]);
     const [description, setDescription] = useState([]);
     const [price, setPrice] = useState([]);
-    
+    const [location, setLocation] =useState([]);
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -25,6 +25,7 @@ const Update =({token, posts, setPosts, postId, setPostId}) => {
                     title:title,
                     description:description,
                     price:price,
+                    location: location
                     
 
                 } 
@@ -51,26 +52,31 @@ const Update =({token, posts, setPosts, postId, setPostId}) => {
                 }
         }
     return <>
-        <h1>
-        Update a Post    
-        </h1>
-            
-        <form onSubmit ={handleSubmit}>
+        <form className='update' onSubmit ={handleSubmit}>
+        <h2>
+        Edit Post    
+        </h2>
         <input type ="text"
             placeholder="edit title"
             value={title}
             onChange={(ev) => setTitle(ev.target.value)}>
         </input>
         <input type ="text"
-            placeholder="edit body"
+            placeholder="edit description"
             value={description}
             onChange={(ev) => setDescription(ev.target.value)}>
         </input>
         <input 
-             type ="edit text" 
+             type ="text" 
             placeholder ="edit price" 
             value = {price} 
              onChange = {(ev) => setPrice(ev.target.value)}>
+        </input>
+        <input 
+             type ="text" 
+            placeholder ="edit location" 
+            value = {location} 
+             onChange = {(ev) => setLocation(ev.target.value)}>
         </input>
         <button type="submit" className="btn btn-outline-primary">Submit</button>
         </form>

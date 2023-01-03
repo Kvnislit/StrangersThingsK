@@ -4,7 +4,8 @@ import { HashRouter, Routes, Route, Link} from 'react-router-dom';
 import Login from './Login';
 import Posts from './Posts';
 import Register from './Register';
-import Update from './Update';
+import Search from './Search';
+
 
 
 
@@ -60,26 +61,32 @@ const App = () =>{
   }
 
   return (
-      <div>
-        <h1>Strangers Things</h1>
-        <nav>
-        <Link to='/posts'>Posts ({posts.length})</Link>
-        <Link to='/login'>Login  ({login})</Link>
-        <Link to='/register'>Register</Link>
-        <Link to='/home'>Home</Link>
-       </nav>     
+      <div className="container">
+        <nav className="navbar">
         {user._id ? ( 
-          <div>
+          <div className='welcome'>
           Welcome {user.username} <button onClick={logout}>Logout</button>
           </div> ) : null }
+        <Link to='/posts'>Posts ({posts.length})</Link>
+        <Link to='/login'>Login/Register ({login})</Link>
+        <Link to='/home'>Home</Link>
+       </nav>  
+       <article>
         {!user._id ? ( 
-          <div>
-          <Register />
-          <Login exchangeTokenForUser ={exchangeTokenForUser}/> 
-          </div>) : null
+         
+          <Login exchangeTokenForUser={exchangeTokenForUser}/>
+          ) : null
         }
-       <Posts posts ={posts} token={token} setPosts={setPosts} />
-       
+       <Routes>
+       <Route path='/posts' element={
+         <Posts posts ={posts} token={token} setPosts={setPosts}/>
+        }/>
+        <Route path='/login' element={
+          <Register />
+        }/>
+          
+       </Routes> 
+       </article>
       </div>
   );
 };

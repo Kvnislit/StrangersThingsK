@@ -29,7 +29,7 @@ fetch('https://strangers-things.herokuapp.com/api/2209-ftb-et-web-am/users/regis
   }
   
 return (
-<form onSubmit= { register }>
+<form className="register"onSubmit= { register }>
 <input 
   placeholder="username" 
   value={ registerUsername }

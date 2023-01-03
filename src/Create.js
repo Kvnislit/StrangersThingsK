@@ -6,7 +6,8 @@ import React, {useState} from 'react'
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-   
+   const [location, setLocation] = useState('');
+
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         // console.log('title, description:', title, description)
@@ -21,6 +22,7 @@ import React, {useState} from 'react'
                     title: title,
                     description: description,
                     price: price,
+                    location: location,
                     willDeliver: true,
                 } 
             })
@@ -31,35 +33,42 @@ import React, {useState} from 'react'
         
             return <>
                
-                <h2>
-                    Create a Post 
-                </h2>  
-                
-                <form onSubmit={handleSubmit}>
-                    <input 
-                    type ="text" 
-                    placeholder ="title" 
-                    value = {title} 
-                    onChange = {(ev) => setTitle(ev.target.value)}>
+                    <div className='create' onSubmit={handleSubmit}>
+                        <form className='post'>
+                        <h2>
+                        Create a Post 
+                        </h2>  
+                        <input 
+                        type ="text" 
+                        placeholder ="title" 
+                        value = {title} 
+                        onChange = {(ev) => setTitle(ev.target.value)}>
                     </input>
                     <input 
-                    type="text" 
-                    placeholder ="description" 
-                    value={description} 
-                    onChange={(ev) => setDescription(ev.target.value)}>
+                        type="text" 
+                        placeholder ="description" 
+                        value={description} 
+                        onChange={(ev) => setDescription(ev.target.value)}>
                     </input>
                     <input 
-                    type ="text" 
-                    placeholder ="price" 
-                    value = {price} 
-                    onChange = {(ev) => setPrice(ev.target.value)}>
+                        type ="text" 
+                        placeholder ="price" 
+                        value = {price} 
+                        onChange = {(ev) => setPrice(ev.target.value)}>
+                    </input>
+                    <input 
+                        type ="text" 
+                        placeholder ="location" 
+                        value = {location} 
+                        onChange = {(ev) => setLocation(ev.target.value)}>
                     </input>
                     <button 
-                    type ="submit" 
-                    className="btn btn-outline-primary">Submit</button>
-                   
-                </form>
-             
+                        type ="submit" 
+                        className="btn btn-outline-primary">Submit</button>
+                   </form>
+                   </div>
+
+                <div/>
                 
         
             </>
