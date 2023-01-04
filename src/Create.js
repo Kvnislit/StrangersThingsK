@@ -6,7 +6,7 @@ import React, {useState} from 'react'
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-   const [location, setLocation] = useState('');
+    const [location, setLocation] = useState('');
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -32,9 +32,8 @@ import React, {useState} from 'react'
             }
         
             return <>
-               
-                    <div className='create' onSubmit={handleSubmit}>
-                        <form className='post'>
+                <div className='create' onSubmit={handleSubmit}>
+                     <form className='post'>
                         <h2>
                         Create a Post 
                         </h2>  
@@ -43,28 +42,29 @@ import React, {useState} from 'react'
                         placeholder ="title" 
                         value = {title} 
                         onChange = {(ev) => setTitle(ev.target.value)}>
-                    </input>
-                    <input 
+                        </input>
+                        <input 
                         type="text" 
                         placeholder ="description" 
                         value={description} 
                         onChange={(ev) => setDescription(ev.target.value)}>
-                    </input>
-                    <input 
+                        </input>
+                        <input 
                         type ="text" 
                         placeholder ="price" 
                         value = {price} 
                         onChange = {(ev) => setPrice(ev.target.value)}>
-                    </input>
-                    <input 
+                        </input>
+                        <input 
                         type ="text" 
                         placeholder ="location" 
                         value = {location} 
                         onChange = {(ev) => setLocation(ev.target.value)}>
-                    </input>
-                    <button 
+                        </input>
+                         <button 
                         type ="submit" 
-                        className="btn btn-outline-primary">Submit</button>
+                        className="btn btn-outline-primary">Submit
+                        </button>
                    </form>
                    </div>
 

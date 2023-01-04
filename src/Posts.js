@@ -30,30 +30,30 @@ if(data){
 
     return <>
         <h1>Posts</h1>
-        <Search/>
+        <Search token={token} posts={posts}  />
         {
           postId
           ? <Update token={token} posts={posts} setPosts={setPosts} postId={postId} 
           setPostId={setPostId}/>
           :<Create token={token} posts={posts} setPosts={setPosts}/>
         }
+       
+       <div className="scrollable">
         {posts.map((post) => {
-          return (   
-          <div key={post._id}
-            className={post.isAuthor ? 'singlePost myPost': 'singlePost'}>
-            <h2><u>{post.title}</u></h2>
-              <p>{post.description}</p>
-              <p><u>Price:</u> {post.price}</p>
-              <p><u>Location:</u> {post.location}</p>
-              <p><u>Will Deliver</u>{post.willDeliver}</p>
-              {post.isAuthor ? <button type="button"
-              className="btn btn-outline-primary" 
-              onClick={()=> setPostId(post._id)}>Edit</button>:null}
-               {post.isAuthor ? <button type="button"
-              className="btn btn-outline-primary" 
-              onClick={()=> handleDelete(post._id)}>Delete</button>:null}          
-          </div>);
+      return (
+        <div key={post._id} className={post.isAuthor ? 'myPost': "singlePost"}>
+        <h2><u>{post.title}</u></h2>
+        <p>{post.description}</p>
+        <p><u>Price:</u> {post.price}</p>
+        <p><u>Location:</u> {post.location}</p>
+        <p><u>Will Deliver</u>{post.willDeliver}</p>
+        {post.isAuthor ? <button type="button" className="btn btn-outline-primary" onClick={()=> setPostId(post._id)}>Edit</button>:null}
+        {post.isAuthor ? <button type="button" className="btn btn-outline-primary" onClick={()=> handleDelete(post._id)}>Delete</button>:null}
+      </div>
+      );
         })}
+    </div>
+
   
       </>
    }

@@ -1,32 +1,41 @@
-import React, {useState , useEffect} from 'react';
+import React, { useState } from 'react';
 
+function Search({ posts, setPosts }) {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-const Search = (props) => {
-  const fetchPosts = props.fetchPosts;
- // const [searchTerm, setSearchTerm] = useState('');
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    // fetchPosts()
-  }, []);
-
-  return <form id="search" onSubmit={async (event) => {
-    // write code here
-  }}>
-   <fieldset className='fieldset'>
-        <label htmlFor="keywords">Search Posts</label>
-        <input 
-          id="keywords" 
-          type="text" 
-          placeholder="enter keywords..."
-          value = {posts} 
-           onChange = {(ev) => setPosts(ev.target.value)}></input>
-      </fieldset>
-      <button>SEARCH</button>
-    </form>
+  function postMatches(posts, text) {
+    // return true if any of the fields you want to check against include the text
+    return Object.values(posts).some(value => value.toString().toLowerCase().includes(text));
   }
-// const filteredPosts = posts.filter(post => search(post, searchTerm));
-// const postsToDisplay = searchTerm.length ? filteredPosts : posts;
 
-// then, in our jsx below... map over postsToDisplay instead of posts
- export default Search;
+  const filteredPosts = posts.filter(post => postMatches(post, searchTerm));
+  const postsToDisplay = searchTerm.length ? filteredPosts : posts;
+
+  return (
+    <div className='search'>
+      <label className='label'>
+        Search:
+        <input
+          className='search-input'
+          type="text"
+          value={searchTerm}
+          onChange={event => setSearchTerm(event.target.value)}
+          onFocus={() => setIsDropdownVisible(true)}
+          onBlur={() => setIsDropdownVisible(false)}
+        />
+      </label>
+      {isDropdownVisible && (
+        <div className='search-dropdown'>
+          {postsToDisplay.map(post => (
+            <div className='search-result' key={post.id}>
+              <p>{post.title}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Search;

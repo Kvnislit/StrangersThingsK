@@ -17,87 +17,8 @@ body {
 		background-position: 0% 50%;
 	}
 }
-.container {
- display: flex;
- flex-direction: column;
- font-family: 'Comfortaa', cursive;
-font-family: 'Righteous', cursive
-}
-#Search {
-  background-color: #1287A8;
-  color: white;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 20rem;
-}
-.fieldset{
-  border-style: none;
-}
-.update {
-  font-size: 20px;
-  color: white;
-  background-color: #1496BB;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  float: right;
-}
-.update input {
-  margin: .5rem;
-  padding: 10px;
-}
-.update h2 {
-  text-align: center;
-}
-.create {
-  font-size: 20px;
-  color: white;
-  background-color: #1496BB;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  float: right;
-}
-.create input {
-  margin: .5rem;
-  padding: 10px;
-}
-label{
-  padding-right: 2rem;
-}
-.create h2{
-  margin: 1rem;
-  padding-bottom: 1rem;
-}
-.post{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;;
-  width: 50%;
-  float: left;
-}
-form {
-  padding: 20px;
-  margin: 40px auto;
-}
-.LoginBox{
-  background-color: #1287A8;
-  color: white;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 20rem;
-}
-.register {
-  background-color: #1287A8;
-  color: white;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 20rem;
-}
 .navbar {
+  border-bottom: 10px solid black;
   color: white;
   background-color: #1287A8;
   position: fixed;
@@ -121,7 +42,7 @@ nav {
 }
 nav a {
   color: white;
-text-decoration: none;
+  text-decoration: none;
 
 }
 .nav .nav-links {
@@ -132,9 +53,98 @@ text-decoration: none;
  
   justify-content: space-between;
 }
-a {
-  color: #353842;
-  text-decoration: none;
+
+.container {
+ display: flex;
+ flex-direction: column;
+ font-family: 'Comfortaa', cursive;
+  font-family: 'Righteous', cursive
+}
+.Search {
+  background-color: #1287A8;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20rem;
+}
+.fieldset{
+  border-style: none;
+}
+.update {
+  font-size: 20px;
+  color: white;
+  background-color: #e58c8b;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  float: right;
+}
+.update input {
+  margin: .5rem;
+  padding: 10px;
+}
+.update h2 {
+  color: #e6e8ea;
+  text-align: center;
+}
+.create {
+  border: 2px solid black;
+  font-size: 20px;
+  background-color: #1496BB;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  float: right;
+}
+.create input {
+  margin: .5rem;
+  padding: 10px;
+}
+
+label{
+  padding-right: 2rem;
+}
+.create h2{
+  margin: 1rem;
+  padding-bottom: 1rem;
+}
+.post{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;;
+  width: 50%;
+  float: left;
+  
+  }
+  .myPost{
+    box-shadow: 1px 4px 15px hsl(229, 75.9%, 25.9%, 0.5);
+    background-color: hsl(229, 55.9%, 98.9%, 1);
+    width: 100%;
+    border-radius: 3rem;
+    border: 3px solid black;
+  }
+form {
+  padding: 20px;
+  margin: 40px auto;
+}
+.LoginBox{
+  border: 2px solid black;
+  background-color: #1287A8;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20rem;
+}
+.register {
+  border: 2px solid black;
+  background-color: #1287A8;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20rem;
 }
 
 article {
@@ -148,31 +158,75 @@ article>* {
   box-shadow: 1px 4px 15px hsl(229, 75.9%, 25.9%, 0.5);
   background-color: hsl(229, 55.9%, 98.9%, 1);
   width: 100%;
-  border-radius: 2rem;
+  border-radius: 3rem;
+  border: 3px solid black;
 }
 
 h1 {
-  color: white;
+  color:#0f2862;
   background-color: #1496BB;
   font-size: clamp(1.4rem, 0.38181828rem + 4.654545vw, 3rem);
   text-align: center;
   padding: 1rem 1.4rem;
 }
-
+h2{
+  color:#0f2862;
+}
 article {
   padding: 2rem;
 }
-
-.singlepost {
+.singlePost {
+  box-shadow: 1px 4px 15px hsl(229, 75.9%, 25.9%, 0.5);
+  background-color:#1287A8;
+  width: 100%;
+  border-radius: 3rem;
+  border: 3px solid black;
+}
+.singlePost p {
+ right: 7rem;
+}
+.singlePost h2 {
+  text-align: center;
+}
+.myPost {
   background-color: #1287A8;
-  padding: 2rem;
-  border-color: 2px solid  #0f2862;
-  color: white;
+  border: 5px solid white;
 }
-.welcome {
-  
-}
+
 .btn-outline-primary {
   padding: 1rem;
-  background-color: lightblue;
+  background-color: rgb(240, 248, 248);
+  text-align: center;
+  margin:  1rem;
+}
+.search-dropdown {
+  position: fixed;
+  left: 30px;
+  width: 5rem;
+  background-color: #1496BB;
+  border: 1px solid #ccc;
+  z-index: 1;
+}
+
+.search-result {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: #f2f2f2;
+}
+.label {
+  font-size: 30px;
+  padding: 2rem;
+}
+.scrollable {
+  height: 17rem;
+  width: 50%;
+  float: left;
+  overflow: scroll; 
+  position: fixed;
+  height: 500px;
+  overflow: scroll; 
+  width: 500px;
 }
